@@ -3,9 +3,10 @@ import numpy as np
 import re
 import itertools
 from collections import Counter
-import sys
-reload(sys)
-sys.setdefaultencoding("utf-8")
+import importlib,sys
+#reload(sys)
+importlib.reload(sys)
+#sys.setdefaultencoding("utf-8")
 
 # 剔除英文的符号
 def clean_str(string):
@@ -41,9 +42,9 @@ def load_data_and_labels(jisuanji_data_file, jiaotong_data_file):
 
     """
     
-    jisuanji_examples = list(open(jisuanji_data_file, "r").readlines())
+    jisuanji_examples = list(open(jisuanji_data_file, "r", encoding='utf-8').readlines())
     jisuanji_examples = [s.strip() for s in jisuanji_examples]
-    jiaotong_exampless = list(open(jiaotong_data_file, "r").readlines())
+    jiaotong_exampless = list(open(jiaotong_data_file, "r", encoding='utf-8').readlines())
     jiaotong_exampless = [s.strip() for s in jiaotong_exampless]
     x_text = jisuanji_examples + jiaotong_exampless
     
